@@ -2,33 +2,33 @@
 
 namespace App\Models;
 
-use App\Models\User;
-use App\Models\Message;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class Conversation extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-
+    protected $fillable=[
         'sender_id',
         'receiver_id',
         'last_time_message',
-
     ];
 
+    //relationships
 
-    // relationship
-    public function message()
+    public function messages( )
     {
-        return $this->hasMany(Message::class);
+return $this->hasMany(Message::class);
+
+        # code...
     }
 
-    public function user()
+    public function user( )
     {
-        return $this->belongsTo(User::class);
+   return $this->belongsTo(User::class);
+        # code...
     }
-
 }
+
+
